@@ -1,0 +1,7 @@
+@mixin tooltip($theme) {
+    .dmnd-tooltip {
+        padding: 6px 12px;
+        background: deep-get($theme, 'gray', 'gray8', 'background');
+        color: deep-get($theme, 'gray', 'gray8', 'foreground');
+    }
+}

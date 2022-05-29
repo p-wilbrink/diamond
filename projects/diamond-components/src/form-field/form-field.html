@@ -1,0 +1,30 @@
+<div class="dmnd-form-field__inner">
+    <div class="dmnd-form-field__infix" #inputContainer>
+        <span class="dmnd-form-field__label-wrapper">
+            <label class="dmnd-form-field__label dmnd-typography--label-label1"
+                [id]="_labelId"
+                [attr.for]="_control.id"
+                [class.dmnd-empty]="_control.empty"
+                [class.dmnd-form-field--empty]="_control.empty"
+                #label
+            >
+                <ng-content select="dmnd-label"></ng-content>
+                <span 
+                    class="dmnd-form-field__required-marker"
+                    *ngIf="!hideRequiredMarker && _control.required && !_control.disabled">
+                    &#32;*                    
+                </span>
+            </label>
+        </span>
+        <ng-content></ng-content>
+    </div>
+    <div class="dmnd-form-field__subscript-wrapper"
+        [ngSwitch]="_getDisplayedMessages()">
+        <div *ngSwitchCase="'error'">
+            <ng-content select="dmnd-error"></ng-content>
+        </div>
+        <div *ngSwitchCase="'hint'">
+            <ng-content select="dmnd-hint"></ng-content>
+        </div>
+    </div>
+</div>

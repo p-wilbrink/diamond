@@ -1,0 +1,44 @@
+.dmnd-button {
+    border: none;
+    padding: 8px 16px;
+    margin: 0;
+    display: inline-flex;
+    cursor: pointer;
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+
+    &--appearance-default {
+        &.dmnd-button--primary {
+            background: green;
+        }
+
+        &.dmnd-button--secondary {
+            background: blue;
+        }
+
+        &.dmnd-button--accent {
+            background: pink;
+        }
+    }
+
+    &--appearance-outline {
+        background: none;
+        border: 2px solid transparent;
+        &.dmnd-button--primary {
+            color: green;
+            border-color: green;
+        }
+
+        &.dmnd-button--secondary {
+            color: blue;
+            border-color: blue;
+        }
+
+        &.dmnd-button--accent {
+            color: pink;
+            border-color: pink;
+        }
+    }
+}

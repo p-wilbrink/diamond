@@ -1,0 +1,17 @@
+@mixin toolbar($theme) {
+    .dmnd-toolbar {
+        padding: 16px;
+        
+        &.dmnd-color {
+            &--primary {
+                background: deep-get($theme, 'primary', 'primary5', 'background');
+                color: deep-get($theme, 'primary', 'primary5', 'foreground');
+            }
+
+            &--secondary {
+                background: deep-get($theme, 'secondary', 'secondary5', 'background');
+                color: deep-get($theme, 'secondary', 'secondary5', 'foreground');
+            }
+        }
+    }
+}

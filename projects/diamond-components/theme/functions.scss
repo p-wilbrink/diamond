@@ -1,0 +1,28 @@
+@function get-color($theme, $name, $tint) {
+    @return map-get(
+        map-get(
+            map-get(
+                map-get(
+                    $theme, 
+                    'color'
+                ),
+                'colors'
+            ), 
+            $name
+        ),
+    $tint
+    );
+}
+
+
+@function deep-get($map, $keys...) {
+    @each $key in $keys {
+        @if map-has-key($map, $key) {
+            $map: map-get($map, $key);
+        } @else {
+            @debug("Map has no key " + $key);
+            $map: null;
+        }
+    }
+    @return $map;
+}

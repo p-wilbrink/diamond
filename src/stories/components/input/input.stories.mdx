@@ -1,0 +1,112 @@
+import { Meta, Story, Canvas, moduleMetadata } from '@storybook/angular'
+
+import { ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/input/README.md'
+
+import { FormsModule } from '@angular/forms'
+
+import { DmndInput, DmndInputModule } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ model, required, readonly, disabled, placeholder }) => ({
+    props: { model, required, readonly, disabled, placeholder },
+    template: `<input dmnd-input [(ngModel)]="model" [required]="required" [disabled]="disabled" [readonly]="readonly" [placeholder]="placeholder" />`
+})
+
+export const Template2 = ({ model, required, readonly, disabled, placeholder, hint, error }) => ({
+    props: { model, required, readonly, disabled, placeholder, hint, error },
+    template: `<dmnd-form-field><dmnd-label>Label</dmnd-label><input dmnd-input [(ngModel)]="model" [required]="required" [disabled]="disabled" [readonly]="readonly" [placeholder]="placeholder" /><dmnd-hint>${hint}</dmnd-hint><dmnd-error>${error}</dmnd-error></dmnd-form-field>`
+})
+
+<Meta
+    title="Components/Input"
+    component={DmndInput}
+    decorators={[
+        moduleMetadata({
+            imports: [
+                FormsModule,
+                DmndInputModule
+            ]
+        })
+    ]}
+    argTypes={{
+        model: {
+            description: 'Set the input model',
+            control: 'text'
+        },
+        required: {
+            description: 'Set the required state',
+            control: 'boolean'
+        },
+        disabled: {
+            description: 'Set the disabled state',
+            control: 'boolean'
+        },
+        readonly: {
+            description: 'Set the readonly state',
+            control: 'boolean'
+        },
+        placeholder: {
+            description: 'Set the placeholder text',
+            control: 'text'
+        },
+        hint: {
+            description: 'Set the hint text',
+            control: 'text'
+        },
+        error: {
+            description: 'Set the error text',
+            control: 'text'
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            model: 'Text',
+            required: false,
+            readonly: false,
+            disabled: false,
+            placeholder: 'Placeholder'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story 
+        name='with form field'
+        args={{
+            model: 'Text',
+            required: false,
+            readonly: false,
+            disabled: false,
+            placeholder: 'Placeholder',
+            hint: 'Hint text',
+            error: 'Invalid text'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template2.bind({})}
+    </Story>
+</Canvas>
+
+## Arguments
+<ArgsTable of={DmndInput} />

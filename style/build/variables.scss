@@ -1,0 +1,171 @@
+
+/**
+ * Do not edit directly
+ * Generated on Tue, 17 May 2022 18:47:12 GMT
+ */
+
+$color-colors-gray-gray8: #333333 !default;
+$color-colors-gray-gray7: #444444 !default;
+$color-colors-gray-gray6: #666666 !default;
+$color-colors-gray-gray5: #999999 !default;
+$color-colors-gray-gray4: #dddddd !default;
+$color-colors-gray-gray3: #eeeeee !default;
+$color-colors-gray-gray2: #f3f3f3 !default;
+$color-colors-gray-gray1: #f8f8f8 !default;
+$color-colors-red-red8: #870016 !default;
+$color-colors-red-red7: #b4001d !default;
+$color-colors-red-red6: #db0023 !default;
+$color-colors-red-red5: #fd0028 !default;
+$color-colors-red-red4: #ff1c40 !default;
+$color-colors-red-red3: #ff3756 !default;
+$color-colors-red-red2: #fe4f6a !default;
+$color-colors-red-red1: #fe647b !default;
+$color-colors-green-green8: #3b6e22 !default;
+$color-colors-green-green7: #4c8f2c !default;
+$color-colors-green-green6: #5bac35 !default;
+$color-colors-green-green5: #69c33f !default;
+$color-colors-green-green4: #7aca56 !default;
+$color-colors-green-green3: #89d06a !default;
+$color-colors-green-green2: #97d57b !default;
+$color-colors-green-green1: #a3da8a !default;
+$color-colors-orange-orange8: #b22b02 !default;
+$color-colors-orange-orange7: #d93402 !default;
+$color-colors-orange-orange6: #fb3c02 !default;
+$color-colors-orange-orange5: #fd521e !default;
+$color-colors-orange-orange4: #fd6639 !default;
+$color-colors-orange-orange3: #fd7850 !default;
+$color-colors-orange-orange2: #fd8864 !default;
+$color-colors-orange-orange1: #fd9676 !default;
+$color-colors-blue-blue8: #004571 !default;
+$color-colors-blue-blue7: #0062a0 !default;
+$color-colors-blue-blue6: #007bca !default;
+$color-colors-blue-blue5: #0091ee !default;
+$color-colors-blue-blue4: #0fa1ff !default;
+$color-colors-blue-blue3: #2bacff !default;
+$color-colors-blue-blue2: #44b5ff !default;
+$color-colors-blue-blue1: #5abdff !default;
+$font-font-header-header1: [object Object] !default;
+$font-font-label-label1: [object Object] !default;
+$typography-font-header-header1-font-size: 42 !default;
+$typography-font-header-header1-text-decoration: none !default;
+$typography-font-header-header1-font-family: Lato !default;
+$typography-font-header-header1-font-weight: 500 !default;
+$typography-font-header-header1-font-style: normal !default;
+$typography-font-header-header1-font-stretch: normal !default;
+$typography-font-header-header1-letter-spacing: 0 !default;
+$typography-font-header-header1-line-height: 50.4 !default;
+$typography-font-header-header1-paragraph-indent: 0 !default;
+$typography-font-header-header1-paragraph-spacing: 0 !default;
+$typography-font-header-header1-text-case: none !default;
+$typography-font-label-label1-font-size: 14 !default;
+$typography-font-label-label1-text-decoration: none !default;
+$typography-font-label-label1-font-family: Lato !default;
+$typography-font-label-label1-font-weight: 600 !default;
+$typography-font-label-label1-font-style: normal !default;
+$typography-font-label-label1-font-stretch: normal !default;
+$typography-font-label-label1-letter-spacing: 0 !default;
+$typography-font-label-label1-line-height: 16.8 !default;
+$typography-font-label-label1-paragraph-indent: 0 !default;
+$typography-font-label-label1-paragraph-spacing: 0 !default;
+$typography-font-label-label1-text-case: none !default;
+
+$tokens: (
+  'color': (
+    'colors': (
+      'gray': (
+        'gray8': $color-colors-gray-gray8,
+        'gray7': $color-colors-gray-gray7,
+        'gray6': $color-colors-gray-gray6,
+        'gray5': $color-colors-gray-gray5,
+        'gray4': $color-colors-gray-gray4,
+        'gray3': $color-colors-gray-gray3,
+        'gray2': $color-colors-gray-gray2,
+        'gray1': $color-colors-gray-gray1
+      ),
+      'red': (
+        'red8': $color-colors-red-red8,
+        'red7': $color-colors-red-red7,
+        'red6': $color-colors-red-red6,
+        'red5': $color-colors-red-red5,
+        'red4': $color-colors-red-red4,
+        'red3': $color-colors-red-red3,
+        'red2': $color-colors-red-red2,
+        'red1': $color-colors-red-red1
+      ),
+      'green': (
+        'green8': $color-colors-green-green8,
+        'green7': $color-colors-green-green7,
+        'green6': $color-colors-green-green6,
+        'green5': $color-colors-green-green5,
+        'green4': $color-colors-green-green4,
+        'green3': $color-colors-green-green3,
+        'green2': $color-colors-green-green2,
+        'green1': $color-colors-green-green1
+      ),
+      'orange': (
+        'orange8': $color-colors-orange-orange8,
+        'orange7': $color-colors-orange-orange7,
+        'orange6': $color-colors-orange-orange6,
+        'orange5': $color-colors-orange-orange5,
+        'orange4': $color-colors-orange-orange4,
+        'orange3': $color-colors-orange-orange3,
+        'orange2': $color-colors-orange-orange2,
+        'orange1': $color-colors-orange-orange1
+      ),
+      'blue': (
+        'blue8': $color-colors-blue-blue8,
+        'blue7': $color-colors-blue-blue7,
+        'blue6': $color-colors-blue-blue6,
+        'blue5': $color-colors-blue-blue5,
+        'blue4': $color-colors-blue-blue4,
+        'blue3': $color-colors-blue-blue3,
+        'blue2': $color-colors-blue-blue2,
+        'blue1': $color-colors-blue-blue1
+      )
+    )
+  ),
+  'font': (
+    'font': (
+      'header': (
+        'header1': $font-font-header-header1
+      ),
+      'label': (
+        'label1': $font-font-label-label1
+      )
+    )
+  ),
+  'typography': (
+    'font': (
+      'header': (
+        'header1': (
+          'fontSize': $typography-font-header-header1-font-size,
+          'textDecoration': $typography-font-header-header1-text-decoration,
+          'fontFamily': $typography-font-header-header1-font-family,
+          'fontWeight': $typography-font-header-header1-font-weight,
+          'fontStyle': $typography-font-header-header1-font-style,
+          'fontStretch': $typography-font-header-header1-font-stretch,
+          'letterSpacing': $typography-font-header-header1-letter-spacing,
+          'lineHeight': $typography-font-header-header1-line-height,
+          'paragraphIndent': $typography-font-header-header1-paragraph-indent,
+          'paragraphSpacing': $typography-font-header-header1-paragraph-spacing,
+          'textCase': $typography-font-header-header1-text-case
+        )
+      ),
+      'label': (
+        'label1': (
+          'fontSize': $typography-font-label-label1-font-size,
+          'textDecoration': $typography-font-label-label1-text-decoration,
+          'fontFamily': $typography-font-label-label1-font-family,
+          'fontWeight': $typography-font-label-label1-font-weight,
+          'fontStyle': $typography-font-label-label1-font-style,
+          'fontStretch': $typography-font-label-label1-font-stretch,
+          'letterSpacing': $typography-font-label-label1-letter-spacing,
+          'lineHeight': $typography-font-label-label1-line-height,
+          'paragraphIndent': $typography-font-label-label1-paragraph-indent,
+          'paragraphSpacing': $typography-font-label-label1-paragraph-spacing,
+          'textCase': $typography-font-label-label1-text-case
+        )
+      )
+    )
+  )
+);

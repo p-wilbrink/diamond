@@ -1,0 +1,22 @@
+@mixin form-field($theme) {
+    .dmnd-form-field {
+     
+        .dmnd-form-field__label > dmnd-label {
+            font-weight: 700;
+            color: deep-get($theme, 'color', 'colors', 'gray', 'gray7');
+
+        }
+
+        &--invalid {
+            .dmnd-form-field__label > dmnd-label,
+            dmnd-error {
+                color: deep-get($theme, 'color', 'colors', 'red', 'red6');
+            }
+        }
+
+        &__subscript-wrapper {
+            font-size: 12px;
+        }
+    }
+
+}

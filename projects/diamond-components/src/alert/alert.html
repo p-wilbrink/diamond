@@ -1,0 +1,13 @@
+<div class="dmnd-alert__inner">
+    <div class="dmnd-alert__header">
+        <div class="dmnd-alert__title">
+            <h4 class="dmnd-typography--label-label1" *ngIf="header">
+                {{ header }}
+            </h4>
+        </div>
+        <span dmnd-closeable [closes]="alert" *ngIf="hasClose" class="dmnd-alert__close-handle">
+            <dmnd-icon>close</dmnd-icon>
+        </span>
+    </div>
+    <ng-content></ng-content>
+</div>

@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas, moduleMetadata } from '@storybook/angular'
+
+import { ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/card/README.md'
+
+import { DmndCard, DmndCardModule, DmndCardTitle, DmndCardBody } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ body, title }) => ({
+    props: { body, title },
+    template: `<dmnd-card><dmnd-card-title>${title}</dmnd-card-title><dmnd-card-body>${body}</dmnd-card-body></dmnd-card>`
+})
+
+export const Template2 = ({ body }) => ({
+    props: { body },
+    template: `<dmnd-card>${body}</dmnd-card>`
+})
+
+<Meta
+    title="Components/Card"
+    component={DmndCard}
+    decorators={[
+        moduleMetadata({
+            imports: [
+                DmndCardModule
+            ]
+        })
+    ]}
+    argTypes={{
+        body: {
+            description: 'Set the body text',
+            control: 'text'
+        },
+        title: {
+            description: 'Set the title text',
+            control: 'text'
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            body: 'Hello World!',
+            title: 'Hello!'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story 
+        name='without title'
+        args={{
+            body: 'Hello World!',
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template2.bind({})}
+    </Story>
+</Canvas>
+
+## Arguments
+<ArgsTable of={DmndCard} />

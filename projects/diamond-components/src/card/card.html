@@ -1,0 +1,7 @@
+<div class="dmnd-card__inner">
+    <ng-content select="dmnd-card-title"></ng-content>
+    <ng-content select="dmnd-card-body"></ng-content>
+    <dmnd-card-body *ngIf="!_body">
+        <ng-content></ng-content>
+    </dmnd-card-body>
+</div>

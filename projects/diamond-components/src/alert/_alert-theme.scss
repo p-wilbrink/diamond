@@ -1,0 +1,32 @@
+@import '../../theme/functions';
+
+@mixin alert($theme) {
+ 
+    .dmnd-alert {
+        &.dmnd-color {
+            &--primary {
+                background: deep-get($theme, 'primary', 'primary1', 'background');
+            }
+            &--secondary {
+                background: deep-get($theme, 'secondary', 'secondary1', 'background');
+            }
+            &--success {
+                background: deep-get($theme, 'color', 'colors', 'green', 'green1');
+                color: deep-get($theme, 'color', 'colors', 'green', 'green8');
+            }
+            &--info {
+                background: deep-get($theme, 'color', 'colors', 'blue', 'blue1');
+                color: deep-get($theme, 'color', 'colors', 'blue', 'blue8');
+            }
+            &--warning {
+                background: deep-get($theme, 'color', 'colors', 'orange', 'orange1');
+                color: deep-get($theme, 'color', 'colors', 'orange', 'orange8');
+            }
+            &--error {
+                background: deep-get($theme, 'color', 'colors', 'red', 'red1');
+                color: deep-get($theme, 'color', 'colors', 'red', 'red8');
+            }
+        }
+    }
+
+}

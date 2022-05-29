@@ -1,0 +1,104 @@
+@mixin accordion($theme) {
+    .dmnd-accordion {
+
+        &__title {
+            padding: 8px;
+            background: deep-get($theme, 'color', 'colors', 'gray', 'gray1');
+            color: deep-get($theme, 'color', 'colors', 'gray', 'gray8');
+        }
+
+        &--closed {
+            .dmnd-accordion__body {
+                transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+            }
+        }
+
+        &--opened {
+            .dmnd-accordion__body {
+                transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+            }
+        }
+
+        &__body {
+            height: auto;
+            transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+            padding: 8px;
+            border-left: 1px solid deep-get($theme, 'color', 'colors', 'gray', 'gray1');
+            border-right: 1px solid deep-get($theme, 'color', 'colors', 'gray', 'gray1');
+            border-bottom: 1px solid deep-get($theme, 'color', 'colors', 'gray', 'gray1');
+        }
+        
+
+        &.dmnd-color {    
+            &--primary {
+                .dmnd-accordion__title {
+                    background: deep-get($theme, 'primary', 'primary1', 'background');
+                    color: deep-get($theme, 'color', 'colors', 'blue', 'blue8');
+                }    
+
+                .dmnd-accordion__body {
+                    border-left: 1px solid deep-get($theme, 'primary', 'primary1', 'background');
+                    border-right: 1px solid deep-get($theme, 'primary', 'primary1', 'background');
+                    border-bottom: 1px solid deep-get($theme, 'primary', 'primary1', 'background');
+                }
+            }
+            &--secondary {
+                .dmnd-accordion__title {
+                    background: deep-get($theme, 'secondary', 'secondary1', 'background');
+                }
+
+                .dmnd-accordion__body {
+                    border-left: 1px solid deep-get($theme, 'secondary', 'secondary1', 'background');
+                    border-right: 1px solid deep-get($theme, 'secondary', 'secondary1', 'background');
+                    border-bottom: 1px solid deep-get($theme, 'secondary', 'secondary1', 'background');
+                }
+            }
+            &--success {
+                .dmnd-accordion__title {
+                    background: deep-get($theme, 'color', 'colors', 'green', 'green1');
+                    color: deep-get($theme, 'color', 'colors', 'green', 'green8');
+                }
+
+                .dmnd-accordion__body {
+                    border-left: 1px solid deep-get($theme, 'color', 'colors', 'green', 'green1');
+                    border-right: 1px solid deep-get($theme, 'color', 'colors', 'green', 'green1');
+                    border-bottom: 1px solid deep-get($theme, 'color', 'colors', 'green', 'green1');
+                }
+            }
+            &--info {
+                .dmnd-accordion__title {
+                    background: deep-get($theme, 'color', 'colors', 'blue', 'blue1');
+                    color: deep-get($theme, 'color', 'colors', 'blue', 'blue8');
+                }
+                .dmnd-accordion__body {
+                    border-left: 1px solid deep-get($theme, 'color', 'colors', 'blue', 'blue1');
+                    border-right: 1px solid deep-get($theme, 'color', 'colors', 'blue', 'blue1');
+                    border-bottom: 1px solid deep-get($theme, 'color', 'colors', 'blue', 'blue1');
+                }
+            }
+            &--warning {
+                .dmnd-accordion__title {
+                    background: deep-get($theme, 'color', 'colors', 'orange', 'orange1');
+                    color: deep-get($theme, 'color', 'colors', 'orange', 'orange8');
+                }
+                .dmnd-accordion__body {
+                    border-left: 1px solid deep-get($theme, 'color', 'colors', 'orange', 'orange1');
+                    border-right: 1px solid deep-get($theme, 'color', 'colors', 'orange', 'orange1');
+                    border-bottom: 1px solid deep-get($theme, 'color', 'colors', 'orange', 'orange1');
+                }
+            }
+            &--error {
+                .dmnd-accordion__title {
+                    background: deep-get($theme, 'color', 'colors', 'red', 'red1');
+                    color: deep-get($theme, 'color', 'colors', 'red', 'red8');
+                }
+                .dmnd-accordion__body {
+                    border-left: 1px solid deep-get($theme, 'color', 'colors', 'red', 'red1');
+                    border-right: 1px solid deep-get($theme, 'color', 'colors', 'red', 'red1');
+                    border-bottom: 1px solid deep-get($theme, 'color', 'colors', 'red', 'red1');
+                }
+            }
+        }
+
+    }   
+}

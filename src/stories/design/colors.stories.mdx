@@ -1,0 +1,27 @@
+import { Meta, ColorPalette, ColorItem, Description, Canvas } from '@storybook/addon-docs'
+
+import * as tokens from '../../../style/tokens/tokens.json'
+
+export const colors = tokens.color.colors
+
+
+export const colorMapper = (color) => Object.entries(color).map(([key, value]) => { return value.value }) 
+
+export const red = colorMapper(colors.red)
+export const green = colorMapper(colors.green)
+export const orange = colorMapper(colors.orange)
+export const blue = colorMapper(colors.blue)
+export const gray = colorMapper(colors.gray)
+
+<Meta title="Design/Colors" />
+
+<Canvas>
+    <ColorPalette>
+        <ColorItem key="red" title="Red" colors={ red } />
+        <ColorItem key="blue" title="Blue" colors={ blue } />
+        <ColorItem key="orange" title="Orange" colors={ orange } />
+        <ColorItem key="green" title="Green" colors={ green } />
+        <ColorItem key="gray" title="Gray" colors={ gray } />
+    </ColorPalette>
+</Canvas>
+

@@ -1,0 +1,107 @@
+@import '../../../style/build/variables';
+
+@import './functions';
+@import './theme';
+
+$theme: map-merge(
+    $tokens,
+    (
+        'gray': (
+            gray8: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray8'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1'),
+            ),
+            gray7: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray7'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1'),
+            ),
+            gray6: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray6'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1'),
+            ),
+            gray5: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray5'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1'),
+            ),
+            gray4: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray4'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8'),
+            ),
+            gray3: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray3'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8'),
+            ),
+            gray2: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray2'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8'),
+            ),
+            gray1: (
+                background: deep-get($tokens, 'color', 'colors', 'gray', 'gray1'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8'),
+            )
+        ),
+        primary: (
+            primary1: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue1'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8')
+            ),
+            primary2: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue2'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8')
+            ),
+            primary3: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue3'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8')
+            ),
+            primary4: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue4'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray8')
+            ),
+            primary5: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue5'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            primary6: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue6'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            primary7: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue7'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            primary8: (
+                background: deep-get($tokens, 'color', 'colors', 'blue', 'blue8'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            )
+        ),
+        secondary: (
+            secondary1: (
+                background: deep-get($tokens, 'color', 'colors', 'green', 'green1'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            secondary2: (
+                background: deep-get($tokens, 'color', 'colors', 'green', 'green2'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            secondary3: (
+                background: deep-get($tokens, 'color', 'colors', 'green', 'green3'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            secondary4: (
+                background: deep-get($tokens, 'color', 'colors', 'green', 'green4'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            secondary5: (
+                background: deep-get($tokens, 'color', 'colors', 'green', 'green5'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            ),
+            secondary6: (
+                background: deep-get($tokens, 'color', 'colors', 'green', 'green6'),
+                foreground: deep-get($tokens, 'color', 'colors', 'gray', 'gray1')
+            )
+        )
+    )
+);
+
+@include theme($theme);
+

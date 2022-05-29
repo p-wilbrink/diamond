@@ -1,0 +1,120 @@
+import { Canvas, Meta, Story, ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/button/README.md'
+
+import { DmndButton } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ color, disabled, content, appearance }) => ({
+    props: { color, disabled, content, appearance },
+    template: `<button dmnd-button color="${color}" disabled="${disabled}" appearance="${appearance}">${content}</button>`
+})
+
+<Meta
+    title="Components/Button"
+    component={DmndButton}
+    argTypes={{
+        content: {
+            description: 'Set the text content',
+            control: 'text'
+        },
+        disabled: {
+            description: 'Set the disabled state',
+            control: 'boolean'
+        },
+        color: {
+            description: 'Set the button color',
+            control: 'select',
+            options: ['primary', 'secondary', 'accent'],
+            table: {
+                type: {
+                    summary: 'Button color',
+                    detail: 'Sets the button color'
+                },
+                defaultValue: {
+                    summary: 'primary'
+                }
+            }
+        },
+        appearance: {
+            description: 'Set the button appearance',
+            control: 'select',
+            options: ['default', 'outline', 'rounded'],
+            table: {
+                type: {
+                    summary: 'Button appearance',
+                    detail: 'Sets the button appearance'
+                },
+                defaultValue: {
+                    summary: 'default'
+                }
+            }
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            content: 'Click me!',
+            disabled: false,
+            color: 'primary',
+            appearance: 'default'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story 
+        name='outline'
+        args={{
+            content: 'Click me!',
+            disabled: false,
+            color: 'primary',
+            appearance: 'outline'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+<Canvas>
+    <Story 
+        name='rounded'
+        args={{
+            content: 'Click me!',
+            disabled: false,
+            color: 'primary',
+            appearance: 'rounded'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+## Arguments
+<ArgsTable of={DmndButton} />

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+@import '../functions.scss';
+
+@mixin typography($theme) {
+    * {
+        font-family: deep-get($theme, 'typography', 'font', 'label', 'label1', 'fontFamily');
+        font-weight: 500;
+    }
+
+    .dmnd-typography {
+        &--label-label1 {
+            font-size: #{deep-get($theme, 'typography', 'font', 'label', 'label1', 'fontSize')}px;
+            text-decoration: deep-get($theme, 'typography', 'font', 'label', 'label1', 'textDecoration');
+            font-family: deep-get($theme, 'typography', 'font', 'label', 'label1', 'fontFamily');
+            font-weight: deep-get($theme, 'typography', 'font', 'label', 'label1', 'fontWeight');
+            font-style: deep-get($theme, 'typography', 'font', 'label', 'label1', 'fontStyle');
+            font-stretch: deep-get($theme, 'typography', 'font', 'label', 'label1', 'fontStretch');
+            letter-spacing: deep-get($theme, 'typography', 'font', 'label', 'label1', 'letterSpacing');
+            line-height: #{deep-get($theme, 'typography', 'font', 'label', 'label1', 'lineHeight')}px;
+            text-indent: deep-get($theme, 'typography', 'font', 'label', 'label1', 'paragraphIndent');
+        }
+    }
+}

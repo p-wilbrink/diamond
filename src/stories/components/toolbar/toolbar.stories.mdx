@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, moduleMetadata } from '@storybook/angular'
+
+import { ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/toolbar/README.md'
+
+import { DmndToolbar, DmndToolbarModule } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ color }) => ({
+    props: { color },
+    template: `<dmnd-toolbar color="${color}">Toolbar</dmnd-toolbar>`
+})
+
+<Meta
+    title="Components/Toolbar"
+    component={DmndToolbar}
+        decorators={[
+        moduleMetadata({
+            imports: [
+                DmndToolbarModule
+            ]
+        })
+    ]}
+    argTypes={{
+        color: {
+            description: 'Set the toolbar color',
+            control: 'select',
+            options: ['primary', 'secondary', 'accent'],
+            table: {
+                type: {
+                    summary: 'Toolbar color',
+                    detail: 'Sets the toolbar color'
+                },
+                defaultValue: {
+                    summary: 'primary'
+                }
+            }
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            color: 'primary'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+## Arguments
+<ArgsTable of={DmndToolbar} />

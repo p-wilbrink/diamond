@@ -1,0 +1,69 @@
+import { Meta, Story, Canvas, moduleMetadata } from '@storybook/angular'
+
+import { ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/tooltip/README.md'
+
+import { DmndTooltip, DmndTooltipModule } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ content, position }) => ({
+    props: { content, position },
+    template: `<div style="height:200px;"><p>This is a <span dmnd-tooltip="${content}" dmnd-tooltip-position="${position}">test.</span></p><div style="height:100px;"></div></div>`
+})
+
+<Meta
+    title="Components/Tooltip"
+    component={DmndTooltip}
+    decorators={[
+        moduleMetadata({
+            imports: [
+                DmndTooltipModule
+            ]
+        })
+    ]}
+    argTypes={{
+        content: {
+            description: 'Set the text content',
+            control: 'text'
+        },
+        position: {
+            description: 'Set the tooltip position',
+            control: 'select',
+            options: ['above', 'below', 'left', 'right'],
+            table: {
+                type: {
+                    summary: 'Tooltip position',
+                    detail: 'Sets the tooltip position'
+                },
+                defaultValue: {
+                    summary: 'below'
+                }
+            }
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            content: 'I am a tooltip!',
+            position: 'below'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+## Arguments
+<ArgsTable of={DmndTooltip} />

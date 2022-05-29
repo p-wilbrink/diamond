@@ -1,0 +1,77 @@
+import { Meta, Story, Canvas, moduleMetadata } from '@storybook/angular'
+import { ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/alert/README.md'
+
+import { DmndAlert, DmndAlertModule } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ color, content, header, hasClose }) => ({
+    props: { color, content, header, hasClose },
+    template: `<dmnd-alert color="${color}" header="${header}" hasClose="${hasClose}">${content}</dmnd-alert>`
+})
+
+<Meta
+    title="Components/Alert"
+    component={DmndAlert}
+    decorators={[
+        moduleMetadata({
+            imports: [
+                DmndAlertModule
+            ]
+        })
+    ]}
+    argTypes={{
+        header: {
+            description: 'Set the alert header',
+            control: 'text'
+        },
+        content: {
+            description: 'Set the text content',
+            control: 'text'
+        },
+        hasClose: {
+            description: 'Has close',
+            control: 'boolean'
+        },
+        color: {
+            description: 'Set the alert color',
+            control: 'select',
+            options: ['primary', 'secondary', 'accent', 'success', 'info', 'warning', 'error'],
+            table: {
+                type: {
+                    summary: 'Alert color',
+                    detail: 'Sets the alert color'
+                },
+                defaultValue: {
+                    summary: 'primary'
+                }
+            }
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            header: 'Primary alert',
+            hasClose: true,
+            content: 'Click me!',
+            color: 'primary',
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## Arguments
+<ArgsTable of={DmndAlert} />

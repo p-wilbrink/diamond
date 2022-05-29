@@ -1,0 +1,69 @@
+import { Meta, Story, Canvas, moduleMetadata } from '@storybook/angular'
+
+import { ArgsTable, Description } from '@storybook/addon-docs'
+import readme from '../../../../projects/diamond-components/src/accordion/README.md'
+
+import { DmndAccordion, DmndAccordionTitle, DmndAccordionBody, DmndAccordionModule } from '@pwilbrink/dmnd'
+
+<Description markdown={readme} />
+
+Some **markdown** description, or whatever you want.
+
+export const Template = ({ opened, color }) => ({
+    props: { opened, color },
+    template: `<dmnd-accordion color="${color}" opened="${opened}"><dmnd-accordion-title>This is the title</dmnd-accordion-title><dmnd-accordion-body>This is the body</dmnd-accordion-body></dmnd-accordion>`
+})
+
+<Meta
+    title="Components/Accordion"
+    component={DmndAccordion}
+    decorators={[
+        moduleMetadata({
+            imports: [
+                DmndAccordionModule
+            ]
+        })
+    ]}
+    argTypes={{
+        opened: {
+            description: 'Set the opened state',
+            control: 'boolean'
+        },
+        color: {
+            description: 'Set the accordion color',
+            control: 'select',
+            options: ['primary', 'secondary', 'accent', 'success', 'info', 'warning', 'error'],
+            table: {
+                type: {
+                    summary: 'Button color',
+                    detail: 'Sets the button color'
+                },
+                defaultValue: {
+                    summary: 'primary'
+                }
+            }
+        }
+    }}
+/>
+
+<Canvas>
+    <Story 
+        name='default'
+        args={{
+            opened: true,
+            color: 'primary'
+        }}
+        parameters={{
+            design: {
+                type: 'figma',
+                url: 'https://www.figma.com/file/wM0rS2VMC6hCu5IZObPN8r/Diamond-Design-System?node-id=2%3A2'
+            }
+        }}
+        >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+
+## Arguments
+<ArgsTable of={DmndAccordion} />

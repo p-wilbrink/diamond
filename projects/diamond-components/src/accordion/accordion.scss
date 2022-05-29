@@ -1,0 +1,21 @@
+.dmnd-accordion {
+    box-sizing: border-box;
+
+    &__title {
+        display: block;
+        box-sizing: border-box;
+    }
+
+    &__body {
+        display: block;
+        box-sizing: border-box;
+    }
+
+    &--closed {
+        .dmnd-accordion__body {
+            height: 0px;
+            padding: 0px 8px;
+            overflow: hidden;
+        }
+    }
+}

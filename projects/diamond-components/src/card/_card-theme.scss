@@ -1,0 +1,7 @@
+@mixin card($theme) {
+    .dmnd-card {
+        padding: 16px;
+        border-radius: 9px;
+        border: 1px solid deep-get($theme, 'color', 'colors', 'gray', 'gray4');
+    }
+}

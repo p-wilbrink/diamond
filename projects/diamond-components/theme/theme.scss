@@ -1,0 +1,23 @@
+@import './core/typography';
+@import '../src/button/button-theme';
+@import '../src/alert/alert-theme';
+@import '../src/icon/icon-theme';
+@import '../src/tooltip/tooltip-theme';
+@import '../src/accordion/accordion-theme';
+@import '../src/input/input-theme';
+@import '../src/form-field/form-field-theme';
+@import '../src/card/card-theme';
+@import '../src/toolbar/toolbar-theme';
+
+@mixin theme($theme) {
+    @include typography($theme);
+    @include button($theme);    
+    @include alert($theme);
+    @include icon($theme);
+    @include tooltip($theme);
+    @include accordion($theme);
+    @include input($theme);
+    @include form-field($theme);
+    @include card($theme);
+    @include toolbar($theme);
+}

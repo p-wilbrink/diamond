@@ -1,0 +1,22 @@
+.dmnd-alert {
+    padding: 16px;
+    display: block;
+
+    &__header {
+        display: flex;
+        margin-bottom: 8px;
+    }
+    &__title {
+        flex: 1;
+        align-self: center;
+        h4 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__close-handle {
+        cursor: pointer;
+        display: inline-flex;
+    }
+}

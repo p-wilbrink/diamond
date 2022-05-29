@@ -1,0 +1,44 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
+.dmnd-tooltip {
+    display: inline-flex;
+    border-radius: 3px;
+    transform: scale(0);
+}
+
+@keyframes dmnd-tooltip-show {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  
+    50% {
+      opacity: 0.5;
+      transform: scale(0.99);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+}
+  
+@keyframes dmnd-tooltip-hide {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+  
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+  
+.dmnd-tooltip--show {
+    animation: dmnd-tooltip-show 200ms cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+  
+.dmnd-tooltip--hide {
+    animation: dmnd-tooltip-hide 100ms cubic-bezier(0, 0, 0.2, 1) forwards;
+}

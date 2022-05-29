@@ -1,0 +1,82 @@
+@import '../../theme/functions';
+
+@mixin button($theme) {
+    .dmnd-button {
+        transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+        &--appearance-default,
+        &--appearance-rounded {
+            border-radius: 3px;
+            transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+            &.dmnd-color {
+                &--primary {
+                    background: deep-get($theme, 'primary', 'primary5', 'background');
+                    color: deep-get($theme, 'primary', 'primary5', 'foreground');
+                    transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+                    &:hover:not(:disabled) {
+                        background: deep-get($theme, 'primary', 'primary6', 'background');
+                        transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+                    }
+                }
+
+                &--secondary {
+                    background: deep-get($theme, 'secondary', 'secondary5', 'background');
+                    color: deep-get($theme, 'secondary', 'secondary5', 'foreground');
+                    transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+                    &:hover:not(:disabled) {
+                        background: deep-get($theme, 'secondary', 'secondary6', 'background');
+                        transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);                        
+                    }
+                }
+            }
+            
+            &:disabled {
+                background: deep-get($theme, 'gray', 'gray5', 'background');
+                color: deep-get($theme, 'gray', 'gray5', 'foreground');
+                transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+            }
+        }
+
+        &--appearance-outline {
+            border-radius: 3px;
+            transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+            background: none;
+
+            border-style: solid;
+            border-width: 3px;
+
+            &.dmnd-color {
+                &--primary {
+                    border-color: deep-get($theme, 'primary', 'primary6', 'background');
+                    color: deep-get($theme, 'primary', 'primary6', 'background');
+                    transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+                    &:hover:not(:disabled) {
+                        background: deep-get($theme, 'primary', 'primary6', 'background');
+                        color: deep-get($theme, 'primary', 'primary6', 'foreground');
+                        transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);                        
+                    }
+                }
+
+                &--secondary {
+                    border-color: deep-get($theme, 'secondary', 'secondary6', 'background');
+                    color: deep-get($theme, 'secondary', 'secondary6', 'background');
+                    transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+                    &:hover:not(:disabled) {
+                        background: deep-get($theme, 'secondary', 'secondary6', 'background');
+                        color: deep-get($theme, 'secondary', 'secondary6', 'foreground');
+                        transition: all .28s cubic-bezier(0.39, 0.575, 0.565, 1);                        
+                    }
+                }
+            }
+        }
+
+        &--appearance-rounded {
+            border-radius: 15px;
+        }
+    }   
+}
