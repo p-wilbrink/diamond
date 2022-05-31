@@ -4,6 +4,29 @@
 module.exports = function (config) {
   config.set({
     basePath: '',
+    browsers: [
+      'Chrome',
+      'ChromiumHeadless',
+      'ChromiumNoSandbox'
+    ],
+    customLaunchers: {
+      'ChromiumHeadless': {
+        base: 'Chrome',
+        flags: [
+          '--headless',
+          '--disable-gpu',
+          '--remote-debugging-port=9222'
+        ],
+        debug: true
+      },
+      'ChromiumNoSandbox': {
+        base: 'ChromiumHeadless',
+        flags: [
+          '--no-sandbox',
+          '--disable-translate'
+        ]
+      }
+    },
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
@@ -37,7 +60,6 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true
   });
