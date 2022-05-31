@@ -5,25 +5,25 @@ import { Observable } from 'rxjs'
 @Directive()
 export abstract class DmndFormFieldControl<T> {
 
-    value: T | null
+	value: T | null
 
-    readonly stateChanges: Observable<void>
+	readonly stateChanges: Observable<void>
 
-    readonly id: string
+	readonly id: string
 
-    readonly placeholder: string
+	readonly placeholder: string
 
-    readonly ngControl: NgControl | AbstractControlDirective | null
+	readonly ngControl: NgControl | AbstractControlDirective | null
 
-    readonly focused: boolean
+	readonly focused: boolean
 
-    readonly empty: boolean
+	readonly empty: boolean
 
-    readonly required: boolean
+	readonly required: boolean
 
-    readonly disabled: boolean
+	readonly disabled: boolean
 
-    readonly errorState: boolean
+	readonly errorState: boolean
 
     abstract onContainerClick(event: MouseEvent): void
 

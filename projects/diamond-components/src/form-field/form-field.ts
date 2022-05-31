@@ -1,146 +1,162 @@
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion'
-import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ContentChild, ContentChildren, ElementRef, InjectionToken, Input, OnDestroy, QueryList, ViewChild, ViewEncapsulation } from '@angular/core'
+import {
+	AfterContentInit,
+	ChangeDetectionStrategy,
+	ChangeDetectorRef,
+	Component,
+	ContentChild,
+	ContentChildren,
+	ElementRef,
+	InjectionToken,
+	Input,
+	OnDestroy,
+	QueryList,
+	ViewChild,
+	ViewEncapsulation,
+} from '@angular/core'
+
 import { AbstractControlDirective } from '@angular/forms'
+
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion'
+
 import { startWith, Subject, takeUntil } from 'rxjs'
+
 import { DmndError, DMND_ERROR } from './error'
 import { DmndFormFieldControl } from './form-field.control'
 import { DmndHint, DMND_HINT } from './hint'
 
 export const DMND_FORM_FIELD = new InjectionToken<DmndFormField>('DmndFormField')
 
-let nextUniqueId: number = 0
+let nextUniqueId = 0
 
 @Component({
-    selector: 'dmnd-form-field',
-    exportAs: 'DmndFormField',
-    templateUrl: './form-field.html',
-    styleUrls: [
-        './form-field.scss'
-    ],
-    host: {
-        class: 'dmnd-form-field',
-        '[class.dmnd-form-field--invalid]': '_control.errorState',
-        '[class.dmnd-form-field--disabled]': '_control.disabled',
-        '[class.dmnd-focused]': '_control.focused',
-        '[class.ng-untouched]': '_shouldForward("untouched")',
-        '[class.ng-touched]': '_shouldForward("touched")',
-        '[class.ng-pristine]': '_shouldForward("pristine")',
-        '[class.ng-dirty]': '_shouldForward("dirty")',
-        '[class.ng-valid]': '_shouldForward("valid")',
-        '[class.ng-invalid]': '_shouldForward("invalid")',
-        '[class.ng-pending]': '_shouldForward("pending")'
-    },
-    encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        {
-            provide: DMND_FORM_FIELD,
-            useExisting: DmndFormField
-        }
-    ]
+	selector: 'dmnd-form-field',
+	exportAs: 'DmndFormField',
+	templateUrl: './form-field.html',
+	styleUrls: [
+		'./form-field.scss',
+	],
+	host: {
+		class: 'dmnd-form-field',
+		'[class.dmnd-form-field--invalid]': '_control.errorState',
+		'[class.dmnd-form-field--disabled]': '_control.disabled',
+		'[class.dmnd-focused]': '_control.focused',
+		'[class.ng-untouched]': '_shouldForward("untouched")',
+		'[class.ng-touched]': '_shouldForward("touched")',
+		'[class.ng-pristine]': '_shouldForward("pristine")',
+		'[class.ng-dirty]': '_shouldForward("dirty")',
+		'[class.ng-valid]': '_shouldForward("valid")',
+		'[class.ng-invalid]': '_shouldForward("invalid")',
+		'[class.ng-pending]': '_shouldForward("pending")',
+	},
+	encapsulation: ViewEncapsulation.None,
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	providers: [
+		{
+			provide: DMND_FORM_FIELD,
+			useExisting: DmndFormField,
+		},
+	],
 })
 export class DmndFormField implements AfterContentInit, OnDestroy {
- 
-    @ViewChild('inputContainer')
-    _inputContainerRef: ElementRef<HTMLElement>
 
-    @ViewChild('label')
-    label: ElementRef<HTMLElement>
+	@ViewChild('inputContainer')
+		_inputContainerRef: ElementRef<HTMLElement>
 
-    @ContentChild(DmndFormFieldControl)
-    _controlNonStatic: DmndFormFieldControl<any>
+	@ViewChild('label')
+		label: ElementRef<HTMLElement>
 
-    @ContentChild(DmndFormField, { static: true })
-    _controlStatic: DmndFormFieldControl<any>
+	@ContentChild(DmndFormFieldControl)
+		_controlNonStatic: DmndFormFieldControl<any>
 
-    set _control(value: DmndFormFieldControl<any>) {
-        this._explicitFormFieldControl = value
-    }
+	@ContentChild(DmndFormField, { static: true })
+		_controlStatic: DmndFormFieldControl<any>
 
-    get _control() {
-        return this._explicitFormFieldControl || this._controlNonStatic || this._controlStatic
-    }
+	set _control(value: DmndFormFieldControl<any>) {
+		this._explicitFormFieldControl = value
+	}
 
-    private _explicitFormFieldControl: DmndFormFieldControl<any>
+	get _control() {
+		return this._explicitFormFieldControl || this._controlNonStatic || this._controlStatic
+	}
 
-    @ContentChildren(DMND_ERROR, { descendants: true }) 
-    _errorChildren: QueryList<DmndError>
-    
-    @ContentChildren(DMND_HINT, { descendants: true })
-    _hintChildren: QueryList<DmndHint>
+	private _explicitFormFieldControl: DmndFormFieldControl<any>
 
-    @Input()
-    set hideRequiredMarker(value: BooleanInput) {
-        this._hideRequiredMarker = coerceBooleanProperty(value)
-    }
+	@ContentChildren(DMND_ERROR, { descendants: true })
+		_errorChildren: QueryList<DmndError>
 
-    get hideRequiredMarker(): boolean {
-        return this._hideRequiredMarker
-    }
+	@ContentChildren(DMND_HINT, { descendants: true })
+		_hintChildren: QueryList<DmndHint>
 
-    private _hideRequiredMarker: boolean = false
+	@Input()
+	set hideRequiredMarker(value: BooleanInput) {
+		this._hideRequiredMarker = coerceBooleanProperty(value)
+	}
 
-    readonly _labelId = `dmnd-form-field__label-${nextUniqueId++}`
+	get hideRequiredMarker(): boolean {
+		return this._hideRequiredMarker
+	}
 
-    private readonly _destroyed: Subject<void> = new Subject<void>()
+	private _hideRequiredMarker = false
 
-    constructor(
-        private _elementRef: ElementRef,
-        private _changeDetectorRef: ChangeDetectorRef,
-    ) {
+	readonly _labelId = `dmnd-form-field__label-${nextUniqueId++}`
 
-    }
+	private readonly _destroyed: Subject<void> = new Subject<void>()
 
-    ngAfterContentInit(): void {
-        const control = this._control
+	constructor(
+		private _elementRef: ElementRef,
+		private _changeDetectorRef: ChangeDetectorRef,
+	) {
 
-        control.stateChanges
-            .pipe(
-                startWith(null)
-            ).subscribe(() => {
-                this._changeDetectorRef.markForCheck()
-            })
+	}
 
-        if (control.ngControl && control.ngControl.valueChanges) {
-            control.ngControl.valueChanges
-                .pipe(
-                    takeUntil(
-                        this._destroyed
-                    )
-                ).subscribe(() => this._changeDetectorRef.markForCheck())
-        }
+	ngAfterContentInit(): void {
+		const control = this._control
 
-        this._hintChildren.changes
-            .pipe(
-                startWith(null)
-            ).subscribe(() => {
-                this._changeDetectorRef.markForCheck()
-            })
-        
-        this._errorChildren.changes
-            .pipe(
-                startWith(null)
-            ).subscribe(() => {
-                this._changeDetectorRef.markForCheck()
-            })
-    
-    }
+		control.stateChanges
+			.pipe(
+				startWith(null),
+			).subscribe(() => {
+				this._changeDetectorRef.markForCheck()
+			})
 
-    ngOnDestroy() {
-        this._destroyed.next()
-        this._destroyed.complete()
-    }
+		if (control.ngControl && control.ngControl.valueChanges) {
+			control.ngControl.valueChanges
+				.pipe(
+					takeUntil(
+						this._destroyed,
+					),
+				).subscribe(() => this._changeDetectorRef.markForCheck())
+		}
 
-    _getDisplayedMessages(): 'error' | 'hint' {
-        console.log('error children', this._errorChildren)
-        console.log('error state:', this._control.errorState)
-        return this._errorChildren && this._errorChildren.length > 0 && this._control.errorState
-            ? 'error'
-            : 'hint'
-    }
+		this._hintChildren.changes
+			.pipe(
+				startWith(null),
+			).subscribe(() => {
+				this._changeDetectorRef.markForCheck()
+			})
 
-    _shouldForward(prop: keyof AbstractControlDirective): boolean {
-        const control = this._control ? this._control.ngControl : null
-        return control && control[prop]
-    }
+		this._errorChildren.changes
+			.pipe(
+				startWith(null),
+			).subscribe(() => {
+				this._changeDetectorRef.markForCheck()
+			})
+
+	}
+
+	ngOnDestroy() {
+		this._destroyed.next()
+		this._destroyed.complete()
+	}
+
+	_getDisplayedMessages(): 'error' | 'hint' {
+		return this._errorChildren && this._errorChildren.length > 0 && this._control.errorState
+			? 'error'
+			: 'hint'
+	}
+
+	_shouldForward(prop: keyof AbstractControlDirective): boolean {
+		const control = this._control ? this._control.ngControl : null
+		return control && control[prop]
+	}
 }

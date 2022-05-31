@@ -8,19 +8,19 @@ import { A11yModule } from '@angular/cdk/a11y'
 import { CdkScrollableModule } from '@angular/cdk/scrolling'
 
 @NgModule({
-    imports: [
-        OverlayModule,
-        A11yModule
-    ],
-    declarations: [
-        DmndTooltip,
-        DmndTooltipComponent
-    ],
-    exports: [
-        OverlayModule,
-        DmndTooltip,
-        DmndTooltipComponent,
-        CdkScrollableModule
-    ]
+	imports: [
+		OverlayModule,
+		A11yModule,
+	],
+	declarations: [
+		DmndTooltip,
+		DmndTooltipComponent,
+	],
+	exports: [
+		OverlayModule,
+		DmndTooltip,
+		DmndTooltipComponent,
+		CdkScrollableModule,
+	],
 })
 export class DmndTooltipModule { }

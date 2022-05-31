@@ -8,20 +8,20 @@ import { DmndError } from './error'
 import { DmndLabel } from './label'
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
-    declarations: [
-        DmndFormField,
-        DmndHint,
-        DmndError,
-        DmndLabel
-    ],
-    exports: [
-        DmndFormField,
-        DmndHint,
-        DmndError,
-        DmndLabel
-    ]
+	imports: [
+		CommonModule,
+	],
+	declarations: [
+		DmndFormField,
+		DmndHint,
+		DmndError,
+		DmndLabel,
+	],
+	exports: [
+		DmndFormField,
+		DmndHint,
+		DmndError,
+		DmndLabel,
+	],
 })
 export class DmndFormFieldModule { }

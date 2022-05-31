@@ -1,0 +1,61 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "semi": [
+            "error",
+            "never"
+        ],
+        "object-curly-newline": "off",
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "no-tabs": [
+            "error",
+            {
+                "allowIndentationTabs": true
+            }
+        ],
+        "max-len": [
+            "error", 
+            { 
+                "code": 140
+            }
+        ],
+        "linebreak-style": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-use-before-define": "off",
+        "no-underscore-dangle": "off",
+        "import/no-unresolved": "off",
+        "import/extensions": "off",
+        "import/order": "off",
+        "padded-blocks": "off",
+        "import/prefer-default-export": "off",
+        "no-useless-constructor": "off",
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "no-param-reassign": "off",
+        "class-methods-use-this": "off",
+        "no-plusplus": "off",
+        "no-self-assign": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unused-vars": "off"
+    }
+}

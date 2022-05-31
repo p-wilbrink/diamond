@@ -7,18 +7,18 @@ import { DmndIconModule } from '../icon'
 import { DmndAlert } from './alert'
 
 @NgModule({
-    imports: [
-        DmndCloseableModule,
-        DmndIconModule,
-        CommonModule
-    ],
-    declarations: [
-        DmndAlert
-    ],
-    exports: [
-        DmndAlert,
-        DmndCloseableModule,
-        DmndIconModule
-    ]
+	imports: [
+		DmndCloseableModule,
+		DmndIconModule,
+		CommonModule,
+	],
+	declarations: [
+		DmndAlert,
+	],
+	exports: [
+		DmndAlert,
+		DmndCloseableModule,
+		DmndIconModule,
+	],
 })
 export class DmndAlertModule { }
